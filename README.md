@@ -1,2 +1,3 @@
 # rock-paper-scissors
-Practice Project. 
+
+Practice Project.
