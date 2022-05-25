@@ -15,4 +15,35 @@ header {
 
 
 /* ------- main ------- */
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+section.players {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+
+section .vs {
+  background-color: lightgrey;
+  width: 50px;
+  height: 50px;
+  padding: 20px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+section .player {
+  background-color: lightblue;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+}
 
