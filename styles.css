@@ -1,5 +1,6 @@
 
 /* ------- header ------- */
+html,
 body {
   height: 100%;
   display: flex;
@@ -51,9 +52,7 @@ section .player {
 
 /* ------- footer -------- */
 
-footer .round-result {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+footer {
+  text-align: center;
   background-color: aqua;
 }
