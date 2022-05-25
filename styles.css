@@ -42,13 +42,32 @@ section .vs {
 }
 
 section .player {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   background-color: lightblue;
   width: 300px;
   height: 300px;
-  text-align: center;
   padding: 10px;
   border-radius: 20px;
 }
+
+
+.user-weapon {
+  background-color: white;
+  height: 150px;
+  width: 150px;
+}
+
+.computer-weapon {
+  background-color: white;
+  height: 150px;
+  width: 150px;
+}
+
+
 
 /* ------- footer -------- */
 
