@@ -56,17 +56,26 @@ section .player {
 
 
 .user-weapon {
-  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 150px;
   width: 150px;
 }
 
 .computer-weapon {
-  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 150px;
   width: 150px;
 }
 
+img {
+  background-color: white;
+  padding: 25px;
+  border-radius: 50%;
+}
 
 
 /* ------- footer -------- */
