@@ -72,7 +72,24 @@ section .player {
 /* ------- footer -------- */
 
 footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex: 1;
   text-align: center;
   background-color: aqua;
+}
+
+form {
+  background-color: white;
+  width: 500px;
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+form h3 {
+  margin: 0px;
+  margin-bottom: 20px;
+  font-size: 40px;
 }
