@@ -11,7 +11,8 @@ const playersWeapons = document.querySelector('.weapon')
 //get input value and pass through function
 form.addEventListener('click', e => {
   const userWeapon = e.target.value;
-  console.log(userWeapon)
+  displayWeaponUI(userWeapon)
+  form.reset();
 })
 
 
@@ -25,13 +26,12 @@ function generateComputerWeapon() {
 
 function displayWeaponUI(userWeapon) {
   //query both players' weapons image sections
-  const userWeaponImage = playersWeapons.querySelector('.user-weapon');
-  const computerWeaponImage = playersWeapons.querySelector('.computer-weapon');
-
+  const userWeaponImage = document.querySelector('.user-weapon');
+  const computerWeaponImage = document.querySelector('.computer-weapon');
   //call function to get computer weapon
-  let computerWeapon;
-
+  const computerWeapon = generateComputerWeapon()
   //display images for both players
   userWeaponImage.innerHTML = `<img src="images/${userWeapon}.png">`
   computerWeaponImage.innerHTML = `<img src="images/${computerWeapon}.png">`
 }
+
