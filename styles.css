@@ -108,3 +108,16 @@ form h3 {
   justify-content: center;
   gap: 10px;
 }
+
+
+.button:hover {
+  color: red;
+}
+
+.button:active {
+  background-color: pink;
+}
+
+form:active {
+  border: 2px solid tomato;
+}
