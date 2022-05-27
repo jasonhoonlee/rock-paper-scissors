@@ -134,3 +134,10 @@ form:active {
 .round-count {
   color: red;
 }
+
+.score{
+  font-size: 20px;
+}
+.total-score {
+  color: red;
+}
