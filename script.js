@@ -11,8 +11,12 @@ const playersWeapons = document.querySelector('.weapon')
 //get input value and pass through function
 form.addEventListener('click', e => {
   const userWeapon = e.target.value;
-  displayWeaponUI(userWeapon)
   form.reset();
+  //generate comp weapon
+  //display weapons for both user and comp
+  displayWeaponUI(userWeapon)
+  //judge winner
+  //display winner of round
 })
 
 
@@ -24,16 +28,15 @@ function generateComputerWeapon() {
 }
 
 
-function displayWeaponUI(userWeapon) {
+function displayWeaponUI(userWeapon, computerWeapon) {
   //query both players' weapons image sections
   const userWeaponImage = document.querySelector('.user-weapon');
   const computerWeaponImage = document.querySelector('.computer-weapon');
-  //call function to get computer weapon
-  const computerWeapon = generateComputerWeapon()
   //display images for both players
   userWeaponImage.innerHTML = `<img src="images/${userWeapon}.png">`
   computerWeaponImage.innerHTML = `<img src="images/${computerWeapon}.png">`
 }
+
 
 function judgeRoundWinner(user, comp) {
   const loss = 'YOU LOSE THIS ROUND!'
