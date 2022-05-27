@@ -4,7 +4,7 @@ const form = document.querySelector('form')
 const playersWeapons = document.querySelector('.weapon')
 const roundWinner = document.querySelector('.round-result')
 const roundCount = document.querySelector('.round-count')
-const score = document.querySelector('.score')
+
 
 let round = 1;
 let compScore = 0;
@@ -26,7 +26,7 @@ form.addEventListener('click', e => {
   //update round
   updateRound();
   //update scores
-
+  updateScore(roundResult)
 })
 
 
@@ -85,6 +85,16 @@ function updateRound() {
   roundCount.textContent = round++;
 }
 
-function updateScore() {
-
+function updateScore(result) {
+  if (result === 'draw') {
+    return '';
+  } else if (result === 'win') {
+    const userTotal = document.querySelector('.user-total-score');
+    userTotal.textContent = userScore++;
+  } else {
+    const compTotal = document.querySelector('.computer-total-score');
+    compTotal.textContent = compScore++;
+  }
 }
+
+updateScore('win')
