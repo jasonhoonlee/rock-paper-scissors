@@ -2,10 +2,10 @@
 //queries
 const form = document.querySelector('form')
 const playersWeapons = document.querySelector('.weapon')
+const roundWinner = document.querySelector('.round-result')
+const roundCount = document.querySelector('.round-count')
 
-
-
-
+let round = 1;
 
 
 //get input value and pass through function
@@ -19,6 +19,8 @@ form.addEventListener('click', e => {
   //judge winner
   const roundWinner = judgeRoundWinner(userWeapon, computerWeapon)
   //display winner of round
+  displayRoundWinner(roundWinner);
+  updateRound();
 })
 
 
@@ -62,3 +64,12 @@ function judgeRoundWinner(user, comp) {
   }
 }
 
+
+function displayRoundWinner(winner) {
+  roundWinner.innerHTML = winner;
+}
+
+
+function updateRound() {
+  roundCount.textContent = round++;
+}
