@@ -121,3 +121,8 @@ form h3 {
 form:active {
   border: 2px solid tomato;
 }
+
+.round-result {
+  font-size: 64px;
+  color: red;
+}
