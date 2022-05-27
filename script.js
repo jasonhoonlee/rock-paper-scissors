@@ -4,8 +4,11 @@ const form = document.querySelector('form')
 const playersWeapons = document.querySelector('.weapon')
 const roundWinner = document.querySelector('.round-result')
 const roundCount = document.querySelector('.round-count')
+const score = document.querySelector('.score')
 
 let round = 1;
+let compScore = 0;
+let userScore = 0;
 
 
 //get input value and pass through function
@@ -20,7 +23,10 @@ form.addEventListener('click', e => {
   const roundWinner = judgeRoundWinner(userWeapon, computerWeapon)
   //display winner of round
   displayRoundWinner(roundWinner);
+  //update round
   updateRound();
+  //update scores
+
 })
 
 
@@ -43,24 +49,22 @@ function displayWeaponUI(userWeapon, computerWeapon) {
 
 
 function judgeRoundWinner(user, comp) {
-  const loss = 'YOU LOSE THIS ROUND!'
-  const win = 'YOU WIN THIS ROUND!'
   if (user === comp) {
-    return 'DRAW!'
+    return 'draw'
   }
   switch(user, comp) {
     case 'rock' && 'paper':
-      return loss;
+      return 'loss';
     case 'rock' && 'scissors':
-      return win;
+      return 'win';
     case 'paper' && 'scissors':
-      return win;
+      return 'win';
     case 'paper' && 'rock':
-      return loss;
+      return 'loss';
     case 'scissors' && 'rock':
-      return loss;
+      return 'loss';
     case 'scissors' && 'paper':
-      return win;
+      return 'win';
   }
 }
 
@@ -72,4 +76,8 @@ function displayRoundWinner(winner) {
 
 function updateRound() {
   roundCount.textContent = round++;
+}
+
+function updateScore() {
+
 }
