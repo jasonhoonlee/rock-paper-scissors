@@ -126,3 +126,11 @@ form:active {
   font-size: 64px;
   color: red;
 }
+
+.round-number {
+  font-size: 50px;
+}
+
+.round-count {
+  color: red;
+}
