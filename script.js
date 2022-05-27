@@ -35,3 +35,25 @@ function displayWeaponUI(userWeapon) {
   computerWeaponImage.innerHTML = `<img src="images/${computerWeapon}.png">`
 }
 
+function judgeRoundWinner(user, comp) {
+  const loss = 'YOU LOSE THIS ROUND!'
+  const win = 'YOU WIN THIS ROUND!'
+  if (user === comp) {
+    return 'DRAW!'
+  }
+  switch(user, comp) {
+    case 'rock' && 'paper':
+      return loss;
+    case 'rock' && 'scissors':
+      return win;
+    case 'paper' && 'scissors':
+      return win;
+    case 'paper' && 'rock':
+      return loss;
+    case 'scissors' && 'rock':
+      return loss;
+    case 'scissors' && 'paper':
+      return win;
+  }
+}
+
