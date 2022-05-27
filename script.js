@@ -20,9 +20,9 @@ form.addEventListener('click', e => {
   //display weapons for both user and comp
   displayWeaponUI(userWeapon, computerWeapon);
   //judge winner
-  const roundWinner = judgeRoundWinner(userWeapon, computerWeapon)
+  const roundResult = judgeRoundWinner(userWeapon, computerWeapon)
   //display winner of round
-  displayRoundWinner(roundWinner);
+  displayRoundResult(roundResult);
   //update round
   updateRound();
   //update scores
@@ -69,8 +69,15 @@ function judgeRoundWinner(user, comp) {
 }
 
 
-function displayRoundWinner(winner) {
-  roundWinner.innerHTML = winner;
+function displayRoundResult(result) {
+  if (result === 'loss') {
+    roundWinner.innerHTML = 'YOU LOSE THIS ROUND.';
+  } else if (result === 'win') {
+    roundWinner.innerHTML = 'YOU WIN THIS ROUND!';
+  } else {
+    roundWinner.innerHTML = 'DRAW!';
+  }
+
 }
 
 
