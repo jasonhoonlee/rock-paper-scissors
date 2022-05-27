@@ -13,9 +13,11 @@ form.addEventListener('click', e => {
   const userWeapon = e.target.value;
   form.reset();
   //generate comp weapon
+  const computerWeapon = generateComputerWeapon();
   //display weapons for both user and comp
-  displayWeaponUI(userWeapon)
+  displayWeaponUI(userWeapon, computerWeapon);
   //judge winner
+  const roundWinner = judgeRoundWinner(userWeapon, computerWeapon)
   //display winner of round
 })
 
