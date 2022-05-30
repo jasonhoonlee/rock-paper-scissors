@@ -109,10 +109,10 @@ form h3 {
   gap: 10px;
 }
 
-
 .button:hover {
   color: red;
 }
+
 
 .button:active {
   background-color: pink;
@@ -140,4 +140,8 @@ form:active {
 }
 .total-score {
   color: red;
+}
+
+.hide {
+  display: none;
 }
