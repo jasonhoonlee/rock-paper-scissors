@@ -6,7 +6,7 @@ const roundWinner = document.querySelector('.round-result');
 const roundCount = document.querySelector('.round-count');
 const continueGame = document.querySelector('.continue');
 const nextRoundBtn = document.querySelector('.next-round');
-
+const endGameBtn = document.querySelector('.end-game');
 
 let round = 1;
 let compScore = 0;
@@ -14,23 +14,23 @@ let userScore = 0;
 
 //get input value and pass through function
 form.addEventListener('click', e => {
-  if (e.target.tagName === 'LABEL') {
-    return;
+  if (e.target.tagName === 'INPUT') {
+    const userWeapon = e.target.id;
+    form.reset();
+    //generate comp weapon
+    const computerWeapon = generateComputerWeapon();
+    //display weapons for both user and comp
+    displayWeaponUI(userWeapon, computerWeapon);
+    //judge winner
+    const roundResult = judgeRoundWinner(userWeapon, computerWeapon);
+    //display winner of round
+    displayRoundResult(roundResult);
+    //update scores
+    updateScore(roundResult);
+    //ask user to continue
+    askUserToContinue();
   }
-  const userWeapon = e.target.id;
-  form.reset();
-  //generate comp weapon
-  const computerWeapon = generateComputerWeapon();
-  //display weapons for both user and comp
-  displayWeaponUI(userWeapon, computerWeapon);
-  //judge winner
-  const roundResult = judgeRoundWinner(userWeapon, computerWeapon);
-  //display winner of round
-  displayRoundResult(roundResult);
-  //update scores
-  updateScore(roundResult);
-  //ask user to continue
-  askUserToContinue();
+  return;
 });
 
 
@@ -51,6 +51,13 @@ nextRoundBtn.addEventListener('click', e => {
 
 })
 
+
+
+endGameBtn.addEventListener('click', e => {
+  const gameOver = document.querySelector('.game-over')
+  gameOver.classList.remove('hide')
+  continueGame.classList.add('hide')
+})
 
 
 
