@@ -5,6 +5,7 @@ const playersWeapons = document.querySelector('.weapon');
 const roundWinner = document.querySelector('.round-result');
 const roundCount = document.querySelector('.round-count');
 const continueGame = document.querySelector('.continue');
+const nextRound = document.querySelector('.next-round');
 
 
 let round = 1;
@@ -17,30 +18,45 @@ form.addEventListener('click', e => {
     return;
   }
   const userWeapon = e.target.id;
-  console.log(userWeapon)
   form.reset();
-
   //generate comp weapon
   const computerWeapon = generateComputerWeapon();
   //display weapons for both user and comp
   displayWeaponUI(userWeapon, computerWeapon);
   //judge winner
-  const roundResult = judgeRoundWinner(userWeapon, computerWeapon)
+  const roundResult = judgeRoundWinner(userWeapon, computerWeapon);
   //display winner of round
   displayRoundResult(roundResult);
+  //update scores
+  updateScore(roundResult);
   //ask user to continue
   askUserToContinue();
-  //update scores
-  updateScore(roundResult)
+});
+
+
+
+
+
+nextRound.addEventListener('click', e => {
+  updateRound();
+  continueGame.classList.add('hide');
+  const userWeapon = document.querySelector('.user-weapon');
+  const compWeapon = document.querySelector('.computer-weapon');
+  userWeapon.innerHTML = '';
+  compWeapon.innerHTML = '';
+  roundWinner.innerHTML = '';
 })
 
 
 //get randomly generated computer weapon
 function generateComputerWeapon() {
   const weapons = ['rock', 'paper', 'scissors'];
-  const random = Math.floor(Math.random() * weapons.length)
+  const random = Math.floor(Math.random() * weapons.length);
   return weapons[random]
 }
+
+
+
 
 
 function displayWeaponUI(userWeapon, computerWeapon) {
@@ -55,18 +71,15 @@ function displayWeaponUI(userWeapon, computerWeapon) {
 
 
 
-
-
 function askUserToContinue() {
-  if (continueGame.classList.includes('hide')) {
+  if (continueGame.classList.contains('hide')) {
     continueGame.classList.remove('hide');
-    updateRound();
-  } else {
-    continueGame.classList.add('hide')
   }
+  //deactivate form
+  document.querySelector('#rock').disabled = true;
+  document.querySelector('#paper').disabled = true;
+  document.querySelector('#scissors').disabled = true;
 }
-
-
 
 
 
@@ -101,7 +114,6 @@ function displayRoundResult(result) {
   } else {
     roundWinner.innerHTML = 'DRAW!';
   }
-
 }
 
 
@@ -110,14 +122,18 @@ function updateRound() {
   roundCount.textContent = round;
 }
 
+
+
 function updateScore(result) {
   if (result === 'draw') {
     return '';
   } else if (result === 'win') {
     const userTotal = document.querySelector('.user-total-score');
-    userTotal.textContent = userScore++;
+    userScore++;
+    userTotal.textContent = userScore;
   } else {
+    compScore++
     const compTotal = document.querySelector('.computer-total-score');
-    compTotal.textContent = compScore++;
+    compTotal.textContent = compScore;
   }
 }
