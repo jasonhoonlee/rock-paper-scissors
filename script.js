@@ -7,6 +7,7 @@ const roundCount = document.querySelector('.round-count');
 const continueGame = document.querySelector('.continue');
 const nextRoundBtn = document.querySelector('.next-round');
 const endGameBtn = document.querySelector('.end-game');
+const gameWinner = document.querySelector('.congratulate-winner');
 
 let round = 1;
 let compScore = 0;
@@ -29,12 +30,13 @@ form.addEventListener('click', e => {
     updateScore(roundResult);
     //ask user to continue
     askUserToContinue();
+    //if score of 3 is reached, congratulate winner
+    if ((userScore === 3) || (compScore === 3)) {
+      congratulateWinner();
+    }
   }
   return;
 });
-
-
-
 
 
 nextRoundBtn.addEventListener('click', e => {
@@ -70,9 +72,6 @@ function generateComputerWeapon() {
 }
 
 
-
-
-
 function displayWeaponUI(userWeapon, computerWeapon) {
   //query both players' weapons image sections
   const userWeaponImage = document.querySelector('.user-weapon');
@@ -83,8 +82,6 @@ function displayWeaponUI(userWeapon, computerWeapon) {
 }
 
 
-
-
 function askUserToContinue() {
   if (continueGame.classList.contains('hide')) {
     continueGame.classList.remove('hide');
@@ -93,9 +90,6 @@ function askUserToContinue() {
   document.querySelector('#paper').disabled = true;
   document.querySelector('#scissors').disabled = true;
 }
-
-
-
 
 
 function judgeRoundWinner(user, comp) {
@@ -136,7 +130,6 @@ function updateRound() {
 }
 
 
-
 function updateScore(result) {
   if (result === 'draw') {
     return '';
@@ -149,4 +142,12 @@ function updateScore(result) {
     const compTotal = document.querySelector('.computer-total-score');
     compTotal.textContent = compScore;
   }
+}
+
+
+function congratulateWinner() {
+  const winner = (userScore === 3) ? 'User' : 'Computer';
+  continueGame.classList.add('hide');
+  roundWinner.classList.add('hide');
+  gameWinner.innerHTML = `${winner} wins!`
 }
