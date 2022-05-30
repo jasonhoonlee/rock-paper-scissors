@@ -58,11 +58,11 @@ function displayWeaponUI(userWeapon, computerWeapon) {
 
 
 function askUserToContinue() {
-  if (continueGame.classList.includes('show')) {
-    continueGame.classList.remove('show')
-  } else {
-    continueGame.classList.add('show')
+  if (continueGame.classList.includes('hide')) {
+    continueGame.classList.remove('hide');
     updateRound();
+  } else {
+    continueGame.classList.add('hide')
   }
 }
 
