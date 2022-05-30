@@ -4,19 +4,21 @@ const form = document.querySelector('form');
 const playersWeapons = document.querySelector('.weapon');
 const roundWinner = document.querySelector('.round-result');
 const roundCount = document.querySelector('.round-count');
-const radioButton = document.querySelector('.button input')
+
 
 let round = 1;
 let compScore = 0;
 let userScore = 0;
 
-
-
 //get input value and pass through function
-radioButton.addEventListener('click', e => {
-  const userWeapon = e.target;
+form.addEventListener('click', e => {
+  if (e.target.tagName === 'LABEL') {
+    return;
+  }
+  const userWeapon = e.target.id;
   console.log(userWeapon)
   form.reset();
+
   //generate comp weapon
   const computerWeapon = generateComputerWeapon();
   //display weapons for both user and comp
