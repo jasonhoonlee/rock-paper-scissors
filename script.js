@@ -4,6 +4,7 @@ const form = document.querySelector('form');
 const playersWeapons = document.querySelector('.weapon');
 const roundWinner = document.querySelector('.round-result');
 const roundCount = document.querySelector('.round-count');
+const continueGame = document.querySelector('.continue');
 
 
 let round = 1;
@@ -27,8 +28,8 @@ form.addEventListener('click', e => {
   const roundResult = judgeRoundWinner(userWeapon, computerWeapon)
   //display winner of round
   displayRoundResult(roundResult);
-  //update round
-  updateRound();
+  //ask user to continue
+  askUserToContinue();
   //update scores
   updateScore(roundResult)
 })
@@ -50,6 +51,25 @@ function displayWeaponUI(userWeapon, computerWeapon) {
   userWeaponImage.innerHTML = `<img src="./images/${userWeapon}.png">`;
   computerWeaponImage.innerHTML = `<img src="./images/${computerWeapon}.png">`;
 }
+
+
+
+
+
+
+function askUserToContinue() {
+  if (continueGame.classList.includes('show')) {
+    continueGame.classList.remove('show')
+  } else {
+    continueGame.classList.add('show')
+    updateRound();
+  }
+}
+
+
+
+
+
 
 
 function judgeRoundWinner(user, comp) {
