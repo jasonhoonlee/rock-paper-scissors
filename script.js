@@ -1,19 +1,21 @@
 
 //queries
-const form = document.querySelector('form')
-const playersWeapons = document.querySelector('.weapon')
-const roundWinner = document.querySelector('.round-result')
-const roundCount = document.querySelector('.round-count')
-
+const form = document.querySelector('form');
+const playersWeapons = document.querySelector('.weapon');
+const roundWinner = document.querySelector('.round-result');
+const roundCount = document.querySelector('.round-count');
+const radioButton = document.querySelector('.button input')
 
 let round = 1;
 let compScore = 0;
 let userScore = 0;
 
 
+
 //get input value and pass through function
-form.addEventListener('click', e => {
-  const userWeapon = e.target.value;
+radioButton.addEventListener('click', e => {
+  const userWeapon = e.target;
+  console.log(userWeapon)
   form.reset();
   //generate comp weapon
   const computerWeapon = generateComputerWeapon();
@@ -43,8 +45,8 @@ function displayWeaponUI(userWeapon, computerWeapon) {
   const userWeaponImage = document.querySelector('.user-weapon');
   const computerWeaponImage = document.querySelector('.computer-weapon');
   //display images for both players
-  userWeaponImage.innerHTML = `<img src="images/${userWeapon}.png">`
-  computerWeaponImage.innerHTML = `<img src="images/${computerWeapon}.png">`
+  userWeaponImage.innerHTML = `<img src="./images/${userWeapon}.png">`;
+  computerWeaponImage.innerHTML = `<img src="./images/${computerWeapon}.png">`;
 }
 
 
@@ -82,7 +84,8 @@ function displayRoundResult(result) {
 
 
 function updateRound() {
-  roundCount.textContent = round++;
+  round += 1
+  roundCount.textContent = round;
 }
 
 function updateScore(result) {
@@ -96,5 +99,3 @@ function updateScore(result) {
     compTotal.textContent = compScore++;
   }
 }
-
-updateScore('win')
