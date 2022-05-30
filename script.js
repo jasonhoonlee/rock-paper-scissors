@@ -5,7 +5,7 @@ const playersWeapons = document.querySelector('.weapon');
 const roundWinner = document.querySelector('.round-result');
 const roundCount = document.querySelector('.round-count');
 const continueGame = document.querySelector('.continue');
-const nextRound = document.querySelector('.next-round');
+const nextRoundBtn = document.querySelector('.next-round');
 
 
 let round = 1;
@@ -37,7 +37,7 @@ form.addEventListener('click', e => {
 
 
 
-nextRound.addEventListener('click', e => {
+nextRoundBtn.addEventListener('click', e => {
   updateRound();
   continueGame.classList.add('hide');
   const userWeapon = document.querySelector('.user-weapon');
@@ -45,7 +45,14 @@ nextRound.addEventListener('click', e => {
   userWeapon.innerHTML = '';
   compWeapon.innerHTML = '';
   roundWinner.innerHTML = '';
+  document.querySelector('#rock').disabled = false;
+  document.querySelector('#paper').disabled = false;
+  document.querySelector('#scissors').disabled = false;
+
 })
+
+
+
 
 
 //get randomly generated computer weapon
@@ -75,7 +82,6 @@ function askUserToContinue() {
   if (continueGame.classList.contains('hide')) {
     continueGame.classList.remove('hide');
   }
-  //deactivate form
   document.querySelector('#rock').disabled = true;
   document.querySelector('#paper').disabled = true;
   document.querySelector('#scissors').disabled = true;
