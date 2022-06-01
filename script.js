@@ -102,9 +102,9 @@ function judgeRoundWinner(user, comp) {
     case 'rock' && 'scissors':
       return 'win';
     case 'paper' && 'scissors':
-      return 'win';
-    case 'paper' && 'rock':
       return 'loss';
+    case 'paper' && 'rock':
+      return 'win';
     case 'scissors' && 'rock':
       return 'loss';
     case 'scissors' && 'paper':
