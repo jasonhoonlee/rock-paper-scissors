@@ -94,26 +94,32 @@ function askUserToContinue() {
 
 function judgeRoundWinner(user, comp) {
   if (user === comp) {
-    return 'draw'
+    return 'draw';
   }
-  switch(user, comp) {
-    case 'rock' && 'paper':
-      return 'loss';
-    case 'rock' && 'scissors':
-      return 'win';
-    case 'paper' && 'scissors':
-      return 'loss';
-    case 'paper' && 'rock':
-      return 'win';
-    case 'scissors' && 'rock':
-      return 'loss';
-    case 'scissors' && 'paper':
-      return 'win';
+  if (user ==='rock' && comp === 'paper') {
+    return 'loss';
+  }
+  if (user ==='rock' && comp === 'scissors') {
+    return 'win';
+  }
+  if (user ==='paper' && comp === 'scissors') {
+    return 'loss';
+  }
+  if (user ==='paper' && comp === 'rock') {
+    return 'win';
+  }
+  if (user ==='scissors' && comp === 'rock'){
+    return 'loss';
+  }
+  if (user ==='scissors' && comp === 'paper'){
+    return 'win';
   }
 }
 
 
+
 function displayRoundResult(result) {
+  console.log(result)
   if (result === 'loss') {
     roundWinner.innerHTML = 'YOU LOSE THIS ROUND.';
   } else if (result === 'win') {
